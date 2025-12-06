@@ -2,8 +2,11 @@ package com.weather;
 
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
+
+import javax.naming.Context;
 
 public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
 
@@ -12,9 +15,14 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
             throws IOException, InterruptedException {
 
         String line = value.toString();
+
+        // Skip header row
+        if (line.startsWith("district")) {
+            return;
+        }
+
         String[] parts = line.split(",");
 
-        // Expecting: district,date,month,temp,precip
         if (parts.length < 5)
             return;
 
