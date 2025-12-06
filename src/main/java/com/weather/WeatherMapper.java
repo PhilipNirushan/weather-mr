@@ -2,11 +2,8 @@ package com.weather;
 
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapreduce.Mapper;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
-
-import javax.naming.Context;
 
 public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
 
