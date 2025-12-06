@@ -13,8 +13,8 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
 
         String line = value.toString();
 
-        // Skip header row
-        if (line.startsWith("district")) {
+        // Skip header line
+        if (line.contains("precipitation_sum")) {
             return;
         }
 
