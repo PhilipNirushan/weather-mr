@@ -21,11 +21,12 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
         // Split CSV line
         String[] parts = line.split(",");
 
-        if (parts.length < 5)
+        if (parts.length < 5) {
             return;
-
+        }
+            
         String district = parts[0].trim();
-        String date = fields[1].trim();
+        String date = parts[1].trim();
         String month = parts[2].trim();
         String temp = parts[3].trim();
         String precip = parts[4].trim();
