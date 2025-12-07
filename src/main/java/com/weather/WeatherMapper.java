@@ -14,7 +14,7 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
         String line = value.toString();
 
         // Skip header line
-        if (line.contains("precipitation_sum")) {
+        if (line.contains("precipitation_hours")) {
             return;
         }
 
