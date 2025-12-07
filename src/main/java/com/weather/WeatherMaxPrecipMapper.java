@@ -28,7 +28,7 @@ public class WeatherMaxPrecipMapper extends Mapper<LongWritable, Text, Text, Tex
         }
 
         String date = fields[1].trim(); // yyyy-mm-dd
-        String precipStr = fields[4].trim(); // precipitation_sum
+        String precipStr = fields[4].trim(); // precipitation_hours
 
         if (precipStr.isEmpty()) {
             return; // skip empty precipitation
