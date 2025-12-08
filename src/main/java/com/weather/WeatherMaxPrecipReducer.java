@@ -37,12 +37,8 @@ public class WeatherMaxPrecipReducer extends Reducer<Text, Text, Text, Text> {
     @Override
     public void cleanup(Context context)
             throws IOException, InterruptedException {
-
-        // After all keys are processed → output only ONE result
-        if (!maxMonthYear.isEmpty() && maxTotal > Double.NEGATIVE_INFINITY) {
             context.write(
                     new Text("Max month-year: " + maxMonthYear),
                     new Text("Total precipitation: " + maxTotal));
-        }
     }
 }
