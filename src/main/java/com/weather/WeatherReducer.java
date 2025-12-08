@@ -27,7 +27,7 @@ public class WeatherReducer extends Reducer<Text, Text, Text, Text> {
 
         double meanTemp = totalTemp / count;
         String meanTempFormatted = String.format("%.2f", meanTemp);
-        String result = "Total Precipitation =" + totalPrecip + "hours, Mean Temperature=" + meanTemp;
+        String result = "Total Precipitation =" + totalPrecip + "hours, Mean Temperature=" + meanTempFormatted;
 
         context.write(key, new Text(result));
     }
