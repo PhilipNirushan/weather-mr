@@ -23,12 +23,12 @@ public class WeatherMaxPrecipMapper extends Mapper<LongWritable, Text, Text, Tex
         String[] fields = line.split(",");
 
         // Safety: need at least 5 columns
-        if (fields.length < 5) {
+        if (fields.length < 8) {
             return;
         }
 
         String date = fields[1].trim(); // yyyy-mm-dd
-        String precipStr = fields[4].trim(); // precipitation_hours
+        String precipStr = fields[5].trim(); // precipitation_hours
 
         if (precipStr.isEmpty()) {
             return; // skip empty precipitation
