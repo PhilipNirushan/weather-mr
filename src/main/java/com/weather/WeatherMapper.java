@@ -29,7 +29,7 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
         String date = parts[1].trim();
         String month = parts[2].trim();
         String temp = parts[3].trim();
-        String precip = parts[4].trim();
+        String precip = parts[5].trim();
 
         // Year Filtering
         String yearStr = date.split("-")[0];
