@@ -19,17 +19,17 @@ public class WeatherMapper extends Mapper<LongWritable, Text, Text, Text> {
         }
 
         // Split CSV line
-        String[] parts = line.split(",");
+        String[] fields = line.split(",");
 
-        if (parts.length < 5) {
+        if (fields.length < 8) {
             return;
         }
             
-        String district = parts[0].trim();
-        String date = parts[1].trim();
-        String month = parts[2].trim();
-        String temp = parts[3].trim();
-        String precip = parts[5].trim();
+        String district = fields[0].trim();
+        String date = fields[1].trim();
+        String month = fields[2].trim();
+        String temp = fields[3].trim();
+        String precip = fields[5].trim();
 
         // Year Filtering
         String yearStr = date.split("-")[0];
